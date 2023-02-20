@@ -722,13 +722,18 @@ function OrionLib:MakeWindow(WindowConfig)
 		LoadSequence()
 	end	
 
-  if WindowConfig.AutoHideUI then
-    MainWindow.Visible = false
-		UIHidden = true
-  end
-
 	local TabFunction = {}
 	function TabFunction:MakeTab(TabConfig)
+    if WindowConfig.AutoHideUI then
+      MainWindow.Visible = false
+      UIHidden = true
+      OrionLib:MakeNotification({
+        Name = "Interface Hidden",
+        Content = "Tap RightShift to reopen the interface",
+        Time = 5
+      })
+      WindowConfig.CloseCallback()
+    end
 		TabConfig = TabConfig or {}
 		TabConfig.Name = TabConfig.Name or "Tab"
 		TabConfig.Icon = TabConfig.Icon or ""
