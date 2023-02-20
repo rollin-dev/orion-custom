@@ -737,11 +737,11 @@ function OrionLib:MakeWindow(WindowConfig)
 	if WindowConfig.AutoMinimizeUI then
 		TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 615, 0, 344)}):Play()
 		MinimizeBtn.Ico.Image = "rbxassetid://7072719338"
-		wait(.02)
+		wait(0.1)
 		MainWindow.ClipsDescendants = false
 		WindowStuff.Visible = true
 		WindowTopBarLine.Visible = true
-		Minimized = not Minimized  
+		Minimized = not Minimized
 	end
 
 	local TabFunction = {}
