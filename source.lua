@@ -741,6 +741,7 @@ function OrionLib:MakeWindow(WindowConfig)
 		MainWindow.ClipsDescendants = false
 		WindowStuff.Visible = true
 		WindowTopBarLine.Visible = true
+		Minimized = not Minimized  
 	end
 
 	local TabFunction = {}
