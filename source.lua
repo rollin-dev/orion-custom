@@ -466,7 +466,7 @@ end
 
 function OrionLib:MakeWindow(WindowConfig)
 	local FirstTab = true
-	local Minimized = true
+	local Minimized = false
 	local Loaded = false
 	local UIHidden = false
 
@@ -732,6 +732,15 @@ function OrionLib:MakeWindow(WindowConfig)
 		})
     WindowConfig.CloseCallback()
   end
+
+	if WindowConfig.AutoMinimizeUI then
+		TweenService:Create(MainWindow, TweenInfo.new(0.5, Enum.EasingStyle.Quint, Enum.EasingDirection.Out), {Size = UDim2.new(0, 615, 0, 344)}):Play()
+		MinimizeBtn.Ico.Image = "rbxassetid://7072719338"
+		wait(.02)
+		MainWindow.ClipsDescendants = false
+		WindowStuff.Visible = true
+		WindowTopBarLine.Visible = true
+	end
 
 	local TabFunction = {}
 	function TabFunction:MakeTab(TabConfig)
