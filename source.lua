@@ -721,14 +721,15 @@ function OrionLib:MakeWindow(WindowConfig)
 	if WindowConfig.IntroEnabled then
 		LoadSequence()
 	end	
+  
+  if WindowConfig.AutoHideUI then
+    MainWindow.Visible = false
+    UIHidden = true
+    WindowConfig.CloseCallback()
+  end
 
 	local TabFunction = {}
 	function TabFunction:MakeTab(TabConfig)
-    if WindowConfig.AutoHideUI then
-      MainWindow.Visible = false
-      UIHidden = true
-      WindowConfig.CloseCallback()
-    end
 		TabConfig = TabConfig or {}
 		TabConfig.Name = TabConfig.Name or "Tab"
 		TabConfig.Icon = TabConfig.Icon or ""
