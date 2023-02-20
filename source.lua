@@ -483,7 +483,8 @@ function OrionLib:MakeWindow(WindowConfig)
 	WindowConfig.ShowIcon = WindowConfig.ShowIcon or false
 	WindowConfig.Icon = WindowConfig.Icon or "rbxassetid://8834748103"
 	WindowConfig.IntroIcon = WindowConfig.IntroIcon or "rbxassetid://8834748103"
-  WindowConfig.AutoHideUI = WindowConfig.AutoHideUI
+  WindowConfig.AutoHideUI = WindowConfig.AutoHideUI or false
+  WindowConfig.AutoMinimizeUI = WindowConfig.AutoMinimizeUI or false
 	OrionLib.Folder = WindowConfig.ConfigFolder
 	OrionLib.SaveCfg = WindowConfig.SaveConfig
 
